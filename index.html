@@ -714,10 +714,19 @@
         font-size: 0.75rem;
       }
 
-      .instruction {
-        bottom: 75px;
-        font-size: 0.7rem;
-      }
+    .instruction {
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+  pointer-events: none; /* <--- Pastikan baris ini ada agar tap tembus ke kanvas 3D */
+  font-size: 0.85rem;
+  color: #ffa6d5;
+  letter-spacing: 1px;
+  animation: pulse 2s infinite;
+}
 
       .music-player {
         right: 12px;
@@ -1154,15 +1163,18 @@
     container.appendChild(renderer.domElement);
 
     /* ================= CONTROLS ================= */
-    const controls = new THREE.OrbitControls(
-      camera,
-      renderer.domElement
-    );
+const controls = new THREE.OrbitControls(
+  camera,
+  renderer.domElement
+);
 
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.05;
-    controls.rotateSpeed = 0.8;
-    controls.enableZoom = true;
+controls.enableDamping = true;
+controls.dampingFactor = 0.05;
+controls.rotateSpeed = 0.8;
+controls.enableZoom = true;
+
+// Mencegah kontrol memblokir ketukan cepat jari
+controls.listenToKeyEvents(window);
 
     /* ================= LIGHT ================= */
     const ambientLight = new THREE.AmbientLight(
@@ -1415,57 +1427,27 @@
         }
       );
     });
+/* ================= RAYCASTER (KLIK/TAP FOTO) ================= */
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
 
-    /* ================= CLICK PHOTO ================= */
-    const raycaster =
-      new THREE.Raycaster();
+// Gunakan event 'pointerup' atau 'click' agar lebih responsif di HP
+window.addEventListener("pointerup", (event) => {
+  // Abaikan jika modal sedang terbuka
+  if (document.getElementById("modal").classList.contains("active")) return;
 
-    const mouse =
-      new THREE.Vector2();
+  // Mendapatkan posisi ketukan di layar sentuh
+  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
-    window.addEventListener(
-      "click",
-      (e) => {
-        if (
-          e.target.closest(".music-player") ||
-          e.target.closest(".modal") ||
-          e.target.closest("#passkey-screen") ||
-          e.target.closest("#gift-screen")
-        ) {
-          return;
-        }
+  raycaster.setFromCamera(mouse, camera);
+  const intersects = raycaster.intersectObjects(photoMeshes);
 
-        mouse.x =
-          (e.clientX /
-            window.innerWidth) *
-            2 -
-          1;
-
-        mouse.y =
-          -(e.clientY /
-            window.innerHeight) *
-            2 +
-          1;
-
-        raycaster.setFromCamera(
-          mouse,
-          camera
-        );
-
-        const intersects =
-          raycaster.intersectObjects(
-            photoMeshes
-          );
-
-        if (intersects.length > 0) {
-          const index =
-            intersects[0].object
-              .userData.id;
-
-          openCard(index);
-        }
-      }
-    );
+  if (intersects.length > 0) {
+    const selectedPhoto = intersects[0].object.userData;
+    openCard(selectedPhoto);
+  }
+});
 
     /* ================= CARD ================= */
     function openCard(index) {

@@ -1427,27 +1427,67 @@ controls.listenToKeyEvents(window);
         }
       );
     });
-/* ================= RAYCASTER (KLIK/TAP FOTO) ================= */
+    /* ================= RAYCASTER (TAP FOTO HP & DESKTOP) ================= */
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 
-// Gunakan event 'pointerup' atau 'click' agar lebih responsif di HP
-window.addEventListener("pointerup", (event) => {
-  // Abaikan jika modal sedang terbuka
+let touchStartX = 0;
+let touchStartY = 0;
+
+// 1. Catat posisi awal saat jari pertama kali menyentuh layar
+window.addEventListener("touchstart", (e) => {
+  if (e.touches.length > 0) {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }
+}, { passive: true });
+
+// 2. Deteksi saat jari diangkat (Touchend)
+window.addEventListener("touchend", (e) => {
   if (document.getElementById("modal").classList.contains("active")) return;
 
-  // Mendapatkan posisi ketukan di layar sentuh
-  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+  if (e.changedTouches.length > 0) {
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchEndY = e.changedTouches[0].clientY;
 
-  raycaster.setFromCamera(mouse, camera);
-  const intersects = raycaster.intersectObjects(photoMeshes);
+    // Hitung jarak pergeseran jari
+    const deltaX = Math.abs(touchEndX - touchStartX);
+    const deltaY = Math.abs(touchEndY - touchStartY);
 
-  if (intersects.length > 0) {
-    const selectedPhoto = intersects[0].object.userData;
-    openCard(selectedPhoto);
+    // Jika jari bergeser kurang dari 10px, anggap sebagai "TAP" (bukan geser kamera)
+    if (deltaX < 10 && deltaY < 10) {
+      checkIntersection(touchEndX, touchEndY);
+    }
   }
 });
+
+// 3. Tetap sediakan event klik untuk laptop/komputer
+window.addEventListener("click", (e) => {
+  if (document.getElementById("modal").classList.contains("active")) return;
+  // Mencegah bentrok dengan touchend di HP
+  if (e.pointerType === "touch") return; 
+  checkIntersection(e.clientX, e.clientY);
+});
+
+// Fungsi utama pengecekan posisi foto yang ditap
+function checkIntersection(clientX, clientY) {
+  mouse.x = (clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(clientY / window.innerHeight) * 2 + 1;
+
+  raycaster.setFromCamera(mouse, camera);
+  const intersects = raycaster.intersectObjects(photoMeshes, true);
+
+  if (intersects.length > 0) {
+    // Cari objek utama foto
+    let target = intersects[0].object;
+    while (target && !target.userData.title && target.parent) {
+      target = target.parent;
+    }
+    if (target && target.userData && target.userData.title) {
+      openCard(target.userData);
+    }
+  }
+}
 
     /* ================= CARD ================= */
     function openCard(index) {

@@ -1427,20 +1427,38 @@ controls.listenToKeyEvents(window);
         }
       );
     });
-    /* ================= RAYCASTER (TAP FOTO HP & DESKTOP) ================= */
+ /* ================= RAYCASTER HP (PASSED DIRECT TOUCH) ================= */
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 
-let touchStartX = 0;
-let touchStartY = 0;
+function handleTouchOrClick(clientX, clientY) {
+  // Hitung koordinat klik/tap
+  mouse.x = (clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(clientY / window.innerHeight) * 2 + 1;
 
-// 1. Catat posisi awal saat jari pertama kali menyentuh layar
-window.addEventListener("touchstart", (e) => {
-  if (e.touches.length > 0) {
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
+  raycaster.setFromCamera(mouse, camera);
+  
+  // Deteksi semua elemen foto
+  const intersects = raycaster.intersectObjects(photoMeshes, false);
+
+  if (intersects.length > 0) {
+    const hitObject = intersects[0].object;
+    if (hitObject && hitObject.userData && hitObject.userData.title) {
+      openCard(hitObject.userData);
+    }
   }
-}, { passive: true });
+}
+
+// Event handler gabungan HP & PC
+const canvasContainer = document.getElementById("canvas-container");
+
+canvasContainer.addEventListener("pointerdown", (e) => {
+  // Hanya proses jika modal sedang tertutup
+  const modal = document.getElementById("modal");
+  if (modal && modal.classList.contains("active")) return;
+
+  handleTouchOrClick(e.clientX, e.clientY);
+}, true);
 
 // 2. Deteksi saat jari diangkat (Touchend)
 window.addEventListener("touchend", (e) => {

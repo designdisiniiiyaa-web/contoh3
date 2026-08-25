@@ -17,6 +17,7 @@
       background: #05000a;
       color: white;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      touch-action: manipulation;
     }
 
     #canvas-container {
@@ -25,6 +26,7 @@
       position: absolute;
       inset: 0;
       z-index: 1;
+      touch-action: none;
     }
 
     #confetti-canvas {
@@ -37,6 +39,7 @@
     }
 
     /* ================= MUSIK ================= */
+
     .music-player {
       position: fixed;
       right: 20px;
@@ -77,7 +80,9 @@
     }
 
     @keyframes spinCover {
-      to { transform: rotate(360deg); }
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     .music-info {
@@ -98,7 +103,8 @@
       color: #ffb3da;
     }
 
-    /* ================= HEADER GALAXY ================= */
+    /* ================= HEADER ================= */
+
     .ui-header {
       position: absolute;
       top: 20px;
@@ -137,11 +143,18 @@
     }
 
     @keyframes pulse {
-      0%, 100% { opacity: 0.4; }
-      50% { opacity: 1; }
+      0%,
+      100% {
+        opacity: 0.4;
+      }
+
+      50% {
+        opacity: 1;
+      }
     }
 
     /* ================= MODAL ================= */
+
     .modal {
       position: fixed;
       inset: 0;
@@ -176,6 +189,7 @@
         transform: scale(0.7);
         opacity: 0;
       }
+
       to {
         transform: scale(1);
         opacity: 1;
@@ -216,10 +230,16 @@
     }
 
     /* ================= PIN ================= */
+
     #passkey-screen {
       position: fixed;
       inset: 0;
-      background: radial-gradient(circle at center, #2e001c 0%, #12000c 70%, #05000a 100%);
+      background: radial-gradient(
+        circle at center,
+        #2e001c 0%,
+        #12000c 70%,
+        #05000a 100%
+      );
       display: flex;
       justify-content: center;
       align-items: center;
@@ -341,16 +361,30 @@
     }
 
     @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      25% { transform: translateX(-6px); }
-      75% { transform: translateX(6px); }
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+
+      25% {
+        transform: translateX(-6px);
+      }
+
+      75% {
+        transform: translateX(6px);
+      }
     }
 
-    /* ================= GIFT SCREEN ================= */
+    /* ================= GIFT ================= */
+
     #gift-screen {
       position: fixed;
       inset: 0;
-      background: radial-gradient(circle at center, #3a0025 0%, #12000c 80%);
+      background: radial-gradient(
+        circle at center,
+        #3a0025 0%,
+        #12000c 80%
+      );
       display: none;
       justify-content: center;
       align-items: center;
@@ -378,8 +412,13 @@
     }
 
     @keyframes bounce {
-      from { transform: translateY(0); }
-      to { transform: translateY(-20px); }
+      from {
+        transform: translateY(0);
+      }
+
+      to {
+        transform: translateY(-20px);
+      }
     }
 
     .surprise-container {
@@ -392,6 +431,7 @@
     }
 
     /* ================= CAKE ================= */
+
     .cake-area {
       width: 100%;
       height: 220px;
@@ -457,11 +497,40 @@
       z-index: 9;
     }
 
-    .cream.c1 { width: 28px; height: 23px; left: 10px; top: 0; }
-    .cream.c2 { width: 32px; height: 32px; left: 42px; top: 0; }
-    .cream.c3 { width: 28px; height: 18px; left: 85px; top: 0; }
-    .cream.c4 { width: 32px; height: 30px; left: 125px; top: 0; }
-    .cream.c5 { width: 28px; height: 23px; right: 10px; top: 0; }
+    .cream.c1 {
+      width: 28px;
+      height: 23px;
+      left: 10px;
+      top: 0;
+    }
+
+    .cream.c2 {
+      width: 32px;
+      height: 32px;
+      left: 42px;
+      top: 0;
+    }
+
+    .cream.c3 {
+      width: 28px;
+      height: 18px;
+      left: 85px;
+      top: 0;
+    }
+
+    .cream.c4 {
+      width: 32px;
+      height: 30px;
+      left: 125px;
+      top: 0;
+    }
+
+    .cream.c5 {
+      width: 28px;
+      height: 23px;
+      right: 10px;
+      top: 0;
+    }
 
     .cake-heart {
       position: absolute;
@@ -471,9 +540,20 @@
       text-shadow: 0 0 8px #ff007f;
     }
 
-    .ch1 { left: 35px; top: 35px; }
-    .ch2 { left: 100px; top: 45px; }
-    .ch3 { right: 35px; top: 35px; }
+    .ch1 {
+      left: 35px;
+      top: 35px;
+    }
+
+    .ch2 {
+      left: 100px;
+      top: 45px;
+    }
+
+    .ch3 {
+      right: 35px;
+      top: 35px;
+    }
 
     .strawberry {
       position: absolute;
@@ -483,14 +563,38 @@
       animation: berryFloat 2.5s ease-in-out infinite;
     }
 
-    .s1 { left: 18px; bottom: 115px; }
-    .s2 { left: 60px; bottom: 125px; animation-delay: 0.2s; }
-    .s3 { right: 60px; bottom: 125px; animation-delay: 0.4s; }
-    .s4 { right: 18px; bottom: 115px; animation-delay: 0.6s; }
+    .s1 {
+      left: 18px;
+      bottom: 115px;
+    }
+
+    .s2 {
+      left: 60px;
+      bottom: 125px;
+      animation-delay: 0.2s;
+    }
+
+    .s3 {
+      right: 60px;
+      bottom: 125px;
+      animation-delay: 0.4s;
+    }
+
+    .s4 {
+      right: 18px;
+      bottom: 115px;
+      animation-delay: 0.6s;
+    }
 
     @keyframes berryFloat {
-      0%, 100% { transform: translateY(0) rotate(-3deg); }
-      50% { transform: translateY(-5px) rotate(3deg); }
+      0%,
+      100% {
+        transform: translateY(0) rotate(-3deg);
+      }
+
+      50% {
+        transform: translateY(-5px) rotate(3deg);
+      }
     }
 
     .candle {
@@ -555,6 +659,7 @@
         transform: translateX(-50%) scale(1) rotate(-1deg);
         opacity: 0.95;
       }
+
       100% {
         transform: translateX(-50%) scale(1.08) rotate(1deg);
         opacity: 1;
@@ -562,6 +667,7 @@
     }
 
     /* ================= BUKET ================= */
+
     .photo-bouquet-wrapper {
       position: relative;
       width: 220px;
@@ -622,10 +728,33 @@
       user-select: none;
     }
 
-    .be-1 { top: -10px; left: 10px; font-size: 22px; }
-    .be-2 { top: -12px; right: 10px; font-size: 22px; animation-delay: 0.3s; }
-    .be-3 { top: 35px; left: -15px; font-size: 20px; animation-delay: 0.6s; }
-    .be-4 { top: 35px; right: -15px; font-size: 20px; animation-delay: 0.9s; }
+    .be-1 {
+      top: -10px;
+      left: 10px;
+      font-size: 22px;
+    }
+
+    .be-2 {
+      top: -12px;
+      right: 10px;
+      font-size: 22px;
+      animation-delay: 0.3s;
+    }
+
+    .be-3 {
+      top: 35px;
+      left: -15px;
+      font-size: 20px;
+      animation-delay: 0.6s;
+    }
+
+    .be-4 {
+      top: 35px;
+      right: -15px;
+      font-size: 20px;
+      animation-delay: 0.9s;
+    }
+
     .be-ribbon {
       bottom: 0;
       z-index: 7;
@@ -634,8 +763,13 @@
     }
 
     @keyframes emojiFloat {
-      from { transform: translateY(0) scale(1); }
-      to { transform: translateY(-6px) scale(1.1); }
+      from {
+        transform: translateY(0) scale(1);
+      }
+
+      to {
+        transform: translateY(-6px) scale(1.1);
+      }
     }
 
     .bouquet-base-wrap {
@@ -701,6 +835,7 @@
     }
 
     /* ================= MOBILE ================= */
+
     @media (max-width: 600px) {
       .ui-header {
         top: 12px;
@@ -714,19 +849,11 @@
         font-size: 0.75rem;
       }
 
-    .instruction {
-  position: absolute;
-  bottom: 25px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  z-index: 10;
-  pointer-events: none; /* <--- Pastikan baris ini ada agar tap tembus ke kanvas 3D */
-  font-size: 0.85rem;
-  color: #ffa6d5;
-  letter-spacing: 1px;
-  animation: pulse 2s infinite;
-}
+      .instruction {
+        bottom: 25px;
+        pointer-events: none;
+        font-size: 0.75rem;
+      }
 
       .music-player {
         right: 12px;
@@ -766,8 +893,18 @@
   <canvas id="confetti-canvas"></canvas>
 
   <!-- ================= MUSIK ================= -->
-  <div class="music-player paused" id="musicPlayer" onclick="toggleMusic()">
-    <img class="music-cover" src="cover.jpg" alt="Cover Lagu">
+
+  <div
+    class="music-player paused"
+    id="musicPlayer"
+    onclick="toggleMusic()"
+  >
+    <img
+      class="music-cover"
+      src="cover.jpg"
+      alt="Cover Lagu"
+    >
+
     <div class="music-info">
       <div class="music-title">About You</div>
       <div class="music-artist">The 1975</div>
@@ -780,11 +917,20 @@
   </audio>
 
   <!-- ================= PIN ================= -->
+
   <div id="passkey-screen">
+
     <div class="pin-container">
+
       <div class="pin-flower">🌷</div>
-      <div class="pin-title">For My girl 💕</div>
-      <div class="pin-subtitle">Masukkan kode rahasia</div>
+
+      <div class="pin-title">
+        For My girl 💕
+      </div>
+
+      <div class="pin-subtitle">
+        Masukkan kode rahasia
+      </div>
 
       <div class="pin-dots" id="pinDots">
         <div class="dot"></div>
@@ -794,39 +940,72 @@
       </div>
 
       <div class="numpad">
+
         <button class="num-btn" onclick="pressKey('1')">1</button>
         <button class="num-btn" onclick="pressKey('2')">2</button>
         <button class="num-btn" onclick="pressKey('3')">3</button>
+
         <button class="num-btn" onclick="pressKey('4')">4</button>
         <button class="num-btn" onclick="pressKey('5')">5</button>
         <button class="num-btn" onclick="pressKey('6')">6</button>
+
         <button class="num-btn" onclick="pressKey('7')">7</button>
         <button class="num-btn" onclick="pressKey('8')">8</button>
         <button class="num-btn" onclick="pressKey('9')">9</button>
+
         <button class="num-btn" onclick="pressKey('clear')">✕</button>
         <button class="num-btn" onclick="pressKey('0')">0</button>
         <button class="num-btn" onclick="pressKey('enter')">↵</button>
+
       </div>
 
-      <div class="pin-hint">Hint: Tanggal lahir kamu 💖</div>
+      <div class="pin-hint">
+        Hint: Tanggal lahir kamu 💖
+      </div>
+
     </div>
+
   </div>
 
   <!-- ================= GIFT ================= -->
+
   <div id="gift-screen">
-    <h2 id="giftTitle" style="color:#ffb3da;margin-bottom:10px;text-shadow:0 0 10px #ff007f;text-align:center;">
+
+    <h2
+      id="giftTitle"
+      style="
+        color:#ffb3da;
+        margin-bottom:10px;
+        text-shadow:0 0 10px #ff007f;
+        text-align:center;
+      "
+    >
       Ketuk Kado Untuk Membuka Kejutan 💖
     </h2>
 
-    <div id="giftBox" class="gift-box-icon" onclick="openGift()">🎁</div>
+    <div
+      id="giftBox"
+      class="gift-box-icon"
+      onclick="openGift()"
+    >
+      🎁
+    </div>
 
-    <div id="surpriseContent" class="surprise-container">
+    <div
+      id="surpriseContent"
+      class="surprise-container"
+    >
+
+      <!-- CAKE -->
 
       <div class="cake-area">
+
         <div class="cake">
+
           <div class="cake-plate"></div>
 
           <div class="cake-body">
+
             <div class="cream c1"></div>
             <div class="cream c2"></div>
             <div class="cream c3"></div>
@@ -836,6 +1015,7 @@
             <span class="cake-heart ch1">✨</span>
             <span class="cake-heart ch2">🪐</span>
             <span class="cake-heart ch3">✨</span>
+
           </div>
 
           <div class="cake-top"></div>
@@ -846,38 +1026,87 @@
           <div class="strawberry s4">💖</div>
 
           <div class="candle">
-            <div class="flame" id="flame"></div>
+
+            <div
+              class="flame"
+              id="flame"
+            ></div>
+
           </div>
+
         </div>
+
       </div>
 
-      <button class="btn-blow" onclick="blowCandle()">💨 Tiup Lilin</button>
+      <button
+        class="btn-blow"
+        onclick="blowCandle()"
+      >
+        💨 Tiup Lilin
+      </button>
+
+      <!-- BUKET -->
 
       <div class="photo-bouquet-wrapper">
+
         <span class="bouquet-deco-emoji be-1">🌸</span>
         <span class="bouquet-deco-emoji be-2">✨</span>
         <span class="bouquet-deco-emoji be-3">💖</span>
         <span class="bouquet-deco-emoji be-4">🌸</span>
 
         <div class="photo-cluster">
-          <img src="buket1.jpg" alt="Foto Buket 1" class="bouquet-photo-item p1">
-          <img src="buket2.jpg" alt="Foto Buket 2" class="bouquet-photo-item p2">
-          <img src="buket3.jpg" alt="Foto Buket 3" class="bouquet-photo-item p3">
+
+          <img
+            src="buket1.jpg"
+            alt="Foto Buket 1"
+            class="bouquet-photo-item p1"
+          >
+
+          <img
+            src="buket2.jpg"
+            alt="Foto Buket 2"
+            class="bouquet-photo-item p2"
+          >
+
+          <img
+            src="buket3.jpg"
+            alt="Foto Buket 3"
+            class="bouquet-photo-item p3"
+          >
+
         </div>
 
         <div class="bouquet-base-wrap"></div>
 
-        <span class="bouquet-deco-emoji be-ribbon">🎀</span>
+        <span class="bouquet-deco-emoji be-ribbon">
+          🎀
+        </span>
+
       </div>
 
-      <button class="btn-galaxy" onclick="goToGalaxy()">Ayo lihat Galaxy Mini Kita 🌌</button>
+      <button
+        class="btn-galaxy"
+        onclick="goToGalaxy()"
+      >
+        Ayo lihat Galaxy Mini Kita 🌌
+      </button>
+
     </div>
+
   </div>
 
   <!-- ================= GALAXY ================= -->
+
   <div class="ui-header">
-    <h1>HAPPY BIRTHDAY <span>💗</span></h1>
-    <p>for you love ✨</p>
+
+    <h1>
+      HAPPY BIRTHDAY <span>💗</span>
+    </h1>
+
+    <p>
+      for you love ✨
+    </p>
+
   </div>
 
   <div id="canvas-container"></div>
@@ -887,337 +1116,736 @@
   </div>
 
   <!-- ================= MODAL ================= -->
-  <div class="modal" id="modal">
+
+  <div
+    class="modal"
+    id="modal"
+  >
+
     <div class="card">
-      <button class="close-btn" onclick="closeCard()">×</button>
-      <img id="cardImage" src="" alt="Photo">
+
+      <button
+        class="close-btn"
+        onclick="closeCard()"
+      >
+        ×
+      </button>
+
+      <img
+        id="cardImage"
+        src=""
+        alt="Photo"
+      >
+
       <h2 id="cardTitle"></h2>
+
       <p id="cardMessage"></p>
+
     </div>
+
   </div>
 
   <script>
-    /* ================= PIN ================= */
+
+    /* =========================================================
+       PIN
+    ========================================================= */
+
     const CORRECT_PIN = "2009";
 
     let enteredPin = "";
 
-    const passkeyScreen = document.getElementById("passkey-screen");
-    const giftScreen = document.getElementById("gift-screen");
-    const dots = document.querySelectorAll(".dot");
+    const passkeyScreen =
+      document.getElementById("passkey-screen");
 
-    /* ================= MUSIK ================= */
-    const song = document.getElementById("bg-music");
-    const musicPlayer = document.getElementById("musicPlayer");
+    const giftScreen =
+      document.getElementById("gift-screen");
+
+    const dots =
+      document.querySelectorAll(".dot");
+
+
+    /* =========================================================
+       MUSIK
+    ========================================================= */
+
+    const song =
+      document.getElementById("bg-music");
+
+    const musicPlayer =
+      document.getElementById("musicPlayer");
 
     song.volume = 0.5;
 
+
     function toggleMusic() {
+
       if (song.paused) {
+
         song.play()
           .then(() => {
             musicPlayer.classList.remove("paused");
           })
           .catch((error) => {
-            console.error("Musik gagal diputar:", error);
-            alert("Musik tidak bisa diputar. Pastikan file 'musik.mp3' ada satu folder dengan index.html.");
+
+            console.error(
+              "Musik gagal diputar:",
+              error
+            );
+
+            alert(
+              "Musik tidak bisa diputar. " +
+              "Pastikan file 'musik.mp3' ada " +
+              "satu folder dengan index.html."
+            );
+
           });
+
       } else {
+
         song.pause();
+
         musicPlayer.classList.add("paused");
+
       }
+
     }
 
+
     function playAudio() {
+
       if (!song) return;
 
       song.volume = 0.5;
 
       song.play()
         .then(() => {
-          musicPlayer.classList.remove("paused");
+
+          musicPlayer.classList.remove(
+            "paused"
+          );
+
         })
         .catch((error) => {
-          console.log("Musik belum bisa diputar:", error);
+
+          console.log(
+            "Musik belum bisa diputar:",
+            error
+          );
+
         });
+
     }
 
-    /* ================= CONFETTI ================= */
-    const confettiCanvas = document.getElementById("confetti-canvas");
 
-    const myConfetti = confetti.create(confettiCanvas, {
-      resize: true,
-      useWorker: true
-    });
+    /* =========================================================
+       CONFETTI
+    ========================================================= */
 
-    /* ================= PIN FUNCTION ================= */
-    function pressKey(key) {
-      if (key === "clear") {
-        enteredPin = enteredPin.slice(0, -1);
-      } else if (key === "enter") {
-        verifyPin();
-        return;
-      } else {
-        if (enteredPin.length < CORRECT_PIN.length) {
-          enteredPin += key;
+    const confettiCanvas =
+      document.getElementById(
+        "confetti-canvas"
+      );
+
+    const myConfetti =
+      confetti.create(
+        confettiCanvas,
+        {
+          resize: true,
+          useWorker: true
         }
+      );
+
+
+    /* =========================================================
+       PIN FUNCTION
+    ========================================================= */
+
+    function pressKey(key) {
+
+      if (key === "clear") {
+
+        enteredPin =
+          enteredPin.slice(0, -1);
+
+      } else if (key === "enter") {
+
+        verifyPin();
+
+        return;
+
+      } else {
+
+        if (
+          enteredPin.length <
+          CORRECT_PIN.length
+        ) {
+
+          enteredPin += key;
+
+        }
+
       }
 
       updateDots();
 
       if (
-        enteredPin.length === CORRECT_PIN.length &&
+        enteredPin.length ===
+          CORRECT_PIN.length &&
         key !== "clear"
       ) {
-        setTimeout(verifyPin, 150);
+
+        setTimeout(
+          verifyPin,
+          150
+        );
+
       }
+
     }
+
 
     function updateDots() {
-      dots.forEach((dot, index) => {
-        if (index < enteredPin.length) {
-          dot.classList.add("filled");
-        } else {
-          dot.classList.remove("filled");
-        }
 
-        dot.classList.remove("error");
-      });
+      dots.forEach(
+        (dot, index) => {
+
+          if (
+            index <
+            enteredPin.length
+          ) {
+
+            dot.classList.add(
+              "filled"
+            );
+
+          } else {
+
+            dot.classList.remove(
+              "filled"
+            );
+
+          }
+
+          dot.classList.remove(
+            "error"
+          );
+
+        }
+      );
+
     }
+
 
     function verifyPin() {
-      if (enteredPin === CORRECT_PIN) {
-        passkeyScreen.classList.add("hide");
+
+      if (
+        enteredPin ===
+        CORRECT_PIN
+      ) {
+
+        passkeyScreen.classList.add(
+          "hide"
+        );
 
         setTimeout(() => {
-          passkeyScreen.style.display = "none";
-          giftScreen.style.display = "flex";
+
+          passkeyScreen.style.display =
+            "none";
+
+          giftScreen.style.display =
+            "flex";
+
         }, 800);
+
       } else {
-        dots.forEach((dot) => dot.classList.add("error"));
+
+        dots.forEach(
+          (dot) =>
+            dot.classList.add(
+              "error"
+            )
+        );
 
         setTimeout(() => {
+
           enteredPin = "";
+
           updateDots();
+
         }, 400);
+
       }
+
     }
 
-    /* ================= OPEN GIFT ================= */
+
+    /* =========================================================
+       OPEN GIFT
+    ========================================================= */
+
     function openGift() {
-      /*
-        Musik diputar setelah klik kado.
-        Ini sengaja dilakukan di sini agar browser mengizinkan audio.
-      */
+
       playAudio();
 
-      document.getElementById("giftBox").style.display = "none";
+      document.getElementById(
+        "giftBox"
+      ).style.display = "none";
 
-      document.getElementById("giftTitle").textContent =
+      document.getElementById(
+        "giftTitle"
+      ).textContent =
         "Make a Wish & Tiup Lilinnya! 🎉";
 
-      document.getElementById("surpriseContent").style.display = "flex";
+      document.getElementById(
+        "surpriseContent"
+      ).style.display = "flex";
+
     }
 
-    /* ================= BLOW CANDLE ================= */
+
+    /* =========================================================
+       BLOW CANDLE
+    ========================================================= */
+
     function blowCandle() {
-      const flame = document.getElementById("flame");
+
+      const flame =
+        document.getElementById(
+          "flame"
+        );
 
       if (flame) {
-        flame.classList.add("off");
+
+        flame.classList.add(
+          "off"
+        );
+
       }
 
       const duration = 3000;
-      const animationEnd = Date.now() + duration;
+
+      const animationEnd =
+        Date.now() + duration;
 
       const defaults = {
+
         startVelocity: 30,
         spread: 360,
         ticks: 60,
         zIndex: 99999
+
       };
 
-      const interval = setInterval(() => {
-        const timeLeft = animationEnd - Date.now();
+      const interval =
+        setInterval(() => {
 
-        if (timeLeft <= 0) {
-          clearInterval(interval);
-          return;
-        }
+          const timeLeft =
+            animationEnd -
+            Date.now();
 
-        const particleCount = 50 * (timeLeft / duration);
+          if (timeLeft <= 0) {
 
-        myConfetti({
-          ...defaults,
-          particleCount,
-          origin: {
-            x: randomInRange(0.1, 0.3),
-            y: Math.random() - 0.2
+            clearInterval(
+              interval
+            );
+
+            return;
+
           }
-        });
 
-        myConfetti({
-          ...defaults,
-          particleCount,
-          origin: {
-            x: randomInRange(0.7, 0.9),
-            y: Math.random() - 0.2
-          }
-        });
-      }, 250);
+          const particleCount =
+            50 *
+            (timeLeft / duration);
+
+          myConfetti({
+
+            ...defaults,
+
+            particleCount,
+
+            origin: {
+
+              x: randomInRange(
+                0.1,
+                0.3
+              ),
+
+              y:
+                Math.random() -
+                0.2
+
+            }
+
+          });
+
+          myConfetti({
+
+            ...defaults,
+
+            particleCount,
+
+            origin: {
+
+              x: randomInRange(
+                0.7,
+                0.9
+              ),
+
+              y:
+                Math.random() -
+                0.2
+
+            }
+
+          });
+
+        }, 250);
+
     }
 
-    function randomInRange(min, max) {
-      return Math.random() * (max - min) + min;
+
+    function randomInRange(
+      min,
+      max
+    ) {
+
+      return (
+        Math.random() *
+          (max - min) +
+        min
+      );
+
     }
 
-    /* ================= GO GALAXY ================= */
+
+    /* =========================================================
+       GO GALAXY
+    ========================================================= */
+
     function goToGalaxy() {
+
       playAudio();
 
-      giftScreen.classList.add("hide");
+      giftScreen.classList.add(
+        "hide"
+      );
 
       setTimeout(() => {
-        giftScreen.style.display = "none";
+
+        giftScreen.style.display =
+          "none";
+
       }, 800);
+
     }
 
-    /* ================= KEYBOARD PIN ================= */
-    window.addEventListener("keydown", (e) => {
-      if (!passkeyScreen.classList.contains("hide")) {
-        if (e.key >= "0" && e.key <= "9") {
-          pressKey(e.key);
-        } else if (e.key === "Backspace") {
-          pressKey("clear");
-        } else if (e.key === "Enter") {
-          pressKey("enter");
-        }
-      }
-    });
 
-    /* ================= PHOTO DATA ================= */
+    /* =========================================================
+       KEYBOARD PIN
+    ========================================================= */
+
+    window.addEventListener(
+      "keydown",
+      (e) => {
+
+        if (
+          !passkeyScreen.classList.contains(
+            "hide"
+          )
+        ) {
+
+          if (
+            e.key >= "0" &&
+            e.key <= "9"
+          ) {
+
+            pressKey(e.key);
+
+          } else if (
+            e.key === "Backspace"
+          ) {
+
+            pressKey("clear");
+
+          } else if (
+            e.key === "Enter"
+          ) {
+
+            pressKey("enter");
+
+          }
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       PHOTO DATA
+    ========================================================= */
+
     const photoData = [
+
       {
-        title: "aku cinta kamu 💕",
-        image: "foto-1.png",
+        title:
+          "aku cinta kamu 💕",
+
+        image:
+          "foto-1.png",
+
         message:
           "selamat bertambah umur sayangkuu ✨"
       },
+
       {
-        title: "Happy Birthday Love🎂",
-        image: "foto-2.png",
+        title:
+          "Happy Birthday Love🎂",
+
+        image:
+          "foto-2.png",
+
         message:
           "selamat ulang tahun yaaa! semoga selalu dikelilingi kebahagiaan dan senyum indah. 💗"
       },
+
       {
-        title: "aku sayang kamu❤️",
-        image: "foto-3.png",
+        title:
+          "aku sayang kamu❤️",
+
+        image:
+          "foto-3.png",
+
         message:
           "setiap hari aku selalu sayang kamuuu. 🌷"
       },
+
       {
-        title: "For You 💌",
-        image: "foto-4.png",
+        title:
+          "For You 💌",
+
+        image:
+          "foto-4.png",
+
         message:
           "di antara luasnya galaksi, kamu adalah bintang yang paling terang di hatiku. ✨"
       },
+
       {
-        title: "pesan Lucu 😂",
-        image: "foto-5.png",
+        title:
+          "pesan Lucu 😂",
+
+        image:
+          "foto-5.png",
+
         message:
           "meskipun tambah umur, tetep aja masih pendek, wkwkkwkwk."
       },
+
       {
-        title: "Thank You 💗",
-        image: "foto-6.png",
+        title:
+          "Thank You 💗",
+
+        image:
+          "foto-6.png",
+
         message:
           "terima kasih atas segala tawamu. terimakasih sudah cantik setiap hari. ✨"
       }
+
     ];
 
-    /* ================= THREE.JS ================= */
-    const container = document.getElementById("canvas-container");
 
-    const scene = new THREE.Scene();
+    /* =========================================================
+       THREE.JS
+    ========================================================= */
 
-    const camera = new THREE.PerspectiveCamera(
-      60,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
+    const container =
+      document.getElementById(
+        "canvas-container"
+      );
+
+    const scene =
+      new THREE.Scene();
+
+
+    const camera =
+      new THREE.PerspectiveCamera(
+        60,
+        window.innerWidth /
+          window.innerHeight,
+        0.1,
+        1000
+      );
+
+    camera.position.set(
+      0,
+      8,
+      28
     );
 
-    camera.position.set(0, 8, 28);
 
-    const renderer = new THREE.WebGLRenderer({
-      antialias: true,
-      alpha: true
-    });
+    const renderer =
+      new THREE.WebGLRenderer({
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        antialias: true,
+        alpha: true
 
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      });
 
-    container.appendChild(renderer.domElement);
 
-    /* ================= CONTROLS ================= */
-const controls = new THREE.OrbitControls(
-  camera,
-  renderer.domElement
-);
-
-controls.enableDamping = true;
-controls.dampingFactor = 0.05;
-controls.rotateSpeed = 0.8;
-controls.enableZoom = true;
-
-// Mencegah kontrol memblokir ketukan cepat jari
-controls.listenToKeyEvents(window);
-
-    /* ================= LIGHT ================= */
-    const ambientLight = new THREE.AmbientLight(
-      0xffb3da,
-      0.4
+    renderer.setSize(
+      window.innerWidth,
+      window.innerHeight
     );
 
-    scene.add(ambientLight);
-
-    const dirLight = new THREE.DirectionalLight(
-      0xffffff,
-      1.2
+    renderer.setPixelRatio(
+      Math.min(
+        window.devicePixelRatio,
+        2
+      )
     );
 
-    dirLight.position.set(15, 20, 15);
-    dirLight.castShadow = true;
-    dirLight.shadow.mapSize.width = 2048;
-    dirLight.shadow.mapSize.height = 2048;
+    renderer.shadowMap.enabled =
+      true;
 
-    scene.add(dirLight);
+    renderer.shadowMap.type =
+      THREE.PCFSoftShadowMap;
 
-    const pointLight = new THREE.PointLight(
-      0xff007f,
-      2,
-      30
+    container.appendChild(
+      renderer.domElement
     );
 
-    pointLight.position.set(0, 0, 0);
 
-    scene.add(pointLight);
+    /* =========================================================
+       CONTROLS
+    ========================================================= */
 
-    /* ================= STARS ================= */
-    const starsGeometry = new THREE.BufferGeometry();
+    const controls =
+      new THREE.OrbitControls(
+        camera,
+        renderer.domElement
+      );
+
+    controls.enableDamping =
+      true;
+
+    controls.dampingFactor =
+      0.05;
+
+    controls.rotateSpeed =
+      0.8;
+
+    controls.enableZoom =
+      true;
+
+    /*
+      PENTING UNTUK HP
+    */
+
+    controls.enablePan =
+      false;
+
+    controls.screenSpacePanning =
+      false;
+
+    controls.touches.ONE =
+      THREE.TOUCH.ROTATE;
+
+    controls.touches.TWO =
+      THREE.TOUCH.DOLLY_PAN;
+
+    controls.listenToKeyEvents(
+      window
+    );
+
+
+    /* =========================================================
+       LIGHT
+    ========================================================= */
+
+    const ambientLight =
+      new THREE.AmbientLight(
+        0xffb3da,
+        0.4
+      );
+
+    scene.add(
+      ambientLight
+    );
+
+
+    const dirLight =
+      new THREE.DirectionalLight(
+        0xffffff,
+        1.2
+      );
+
+    dirLight.position.set(
+      15,
+      20,
+      15
+    );
+
+    dirLight.castShadow =
+      true;
+
+    dirLight.shadow.mapSize.width =
+      2048;
+
+    dirLight.shadow.mapSize.height =
+      2048;
+
+    scene.add(
+      dirLight
+    );
+
+
+    const pointLight =
+      new THREE.PointLight(
+        0xff007f,
+        2,
+        30
+      );
+
+    pointLight.position.set(
+      0,
+      0,
+      0
+    );
+
+    scene.add(
+      pointLight
+    );
+
+
+    /* =========================================================
+       STARS
+    ========================================================= */
+
+    const starsGeometry =
+      new THREE.BufferGeometry();
 
     const starsCount = 1200;
 
     const starPositions =
-      new Float32Array(starsCount * 3);
+      new Float32Array(
+        starsCount * 3
+      );
 
-    for (let i = 0; i < starsCount * 3; i++) {
+    for (
+      let i = 0;
+      i < starsCount * 3;
+      i++
+    ) {
+
       starPositions[i] =
-        (Math.random() - 0.5) * 200;
+        (Math.random() - 0.5) *
+        200;
+
     }
+
 
     starsGeometry.setAttribute(
       "position",
@@ -1227,11 +1855,15 @@ controls.listenToKeyEvents(window);
       )
     );
 
+
     const starsMaterial =
       new THREE.PointsMaterial({
+
         color: 0xffffff,
         size: 0.5
+
       });
+
 
     const starField =
       new THREE.Points(
@@ -1239,11 +1871,18 @@ controls.listenToKeyEvents(window);
         starsMaterial
       );
 
-    scene.add(starField);
+    scene.add(
+      starField
+    );
 
-    /* ================= CENTER PLANET ================= */
+
+    /* =========================================================
+       CENTER PLANET
+    ========================================================= */
+
     const centerGroup =
       new THREE.Group();
+
 
     const sphereGeo =
       new THREE.SphereGeometry(
@@ -1252,13 +1891,20 @@ controls.listenToKeyEvents(window);
         64
       );
 
+
     const sphereMat =
       new THREE.MeshStandardMaterial({
+
         color: 0xff007f,
+
         roughness: 0.3,
+
         metalness: 0.2,
+
         emissive: 0x440022
+
       });
+
 
     const centerPlanet =
       new THREE.Mesh(
@@ -1266,10 +1912,18 @@ controls.listenToKeyEvents(window);
         sphereMat
       );
 
-    centerPlanet.castShadow = true;
-    centerPlanet.receiveShadow = true;
 
-    centerGroup.add(centerPlanet);
+    centerPlanet.castShadow =
+      true;
+
+    centerPlanet.receiveShadow =
+      true;
+
+
+    centerGroup.add(
+      centerPlanet
+    );
+
 
     const ringGeo =
       new THREE.RingGeometry(
@@ -1278,14 +1932,22 @@ controls.listenToKeyEvents(window);
         64
       );
 
+
     const ringMat =
       new THREE.MeshStandardMaterial({
+
         color: 0xff99dd,
+
         side: THREE.DoubleSide,
+
         transparent: true,
+
         opacity: 0.8,
+
         roughness: 0.5
+
       });
+
 
     const planetRing =
       new THREE.Mesh(
@@ -1293,20 +1955,32 @@ controls.listenToKeyEvents(window);
         ringMat
       );
 
+
     planetRing.rotation.x =
       Math.PI / 2.5;
 
-    centerGroup.add(planetRing);
 
-    scene.add(centerGroup);
+    centerGroup.add(
+      planetRing
+    );
 
-    /* ================= ORBIT RINGS ================= */
+
+    scene.add(
+      centerGroup
+    );
+
+
+    /* =========================================================
+       ORBIT RINGS
+    ========================================================= */
+
     function createOrbitRing(
       radius,
       color,
       rotX,
       rotY
     ) {
+
       const ringGeo =
         new THREE.RingGeometry(
           radius - 0.05,
@@ -1314,11 +1988,17 @@ controls.listenToKeyEvents(window);
           64
         );
 
+
       const ringMat =
         new THREE.MeshBasicMaterial({
+
           color,
-          side: THREE.DoubleSide
+
+          side:
+            THREE.DoubleSide
+
         });
+
 
       const ring =
         new THREE.Mesh(
@@ -1326,11 +2006,20 @@ controls.listenToKeyEvents(window);
           ringMat
         );
 
-      ring.rotation.x = rotX;
-      ring.rotation.y = rotY;
 
-      scene.add(ring);
+      ring.rotation.x =
+        rotX;
+
+      ring.rotation.y =
+        rotY;
+
+
+      scene.add(
+        ring
+      );
+
     }
+
 
     createOrbitRing(
       11,
@@ -1339,6 +2028,7 @@ controls.listenToKeyEvents(window);
       0.2
     );
 
+
     createOrbitRing(
       14,
       0xff66cc,
@@ -1346,8 +2036,13 @@ controls.listenToKeyEvents(window);
       -0.3
     );
 
-    /* ================= PHOTO ORBIT ================= */
+
+    /* =========================================================
+       PHOTO ORBIT
+    ========================================================= */
+
     const photoMeshes = [];
+
     const textureLoader =
       new THREE.TextureLoader();
 
@@ -1355,213 +2050,495 @@ controls.listenToKeyEvents(window);
       photoData.length;
 
     const radius = 17;
+
     const baseHeight = 6.7;
 
-    photoData.forEach((data, index) => {
-      const angle =
-        (index / totalPhotos) *
-        Math.PI *
-        2;
 
-      const x =
-        Math.cos(angle) * radius;
+    photoData.forEach(
+      (data, index) => {
 
-      const z =
-        Math.sin(angle) * radius;
+        const angle =
+          (index / totalPhotos) *
+          Math.PI *
+          2;
 
-      textureLoader.load(
-        data.image,
-        (texture) => {
-          const aspect =
-            texture.image.width /
-            texture.image.height;
 
-          const planeGeo =
-            new THREE.PlaneGeometry(
-              1,
+        const x =
+          Math.cos(angle) *
+          radius;
+
+
+        const z =
+          Math.sin(angle) *
+          radius;
+
+
+        textureLoader.load(
+
+          data.image,
+
+          (texture) => {
+
+            const aspect =
+              texture.image.width /
+              texture.image.height;
+
+
+            const planeGeo =
+              new THREE.PlaneGeometry(
+                1,
+                1
+              );
+
+
+            const planeMat =
+              new THREE.MeshStandardMaterial({
+
+                map: texture,
+
+                side:
+                  THREE.DoubleSide,
+
+                roughness: 0.4,
+
+                transparent: true
+
+              });
+
+
+            const photoMesh =
+              new THREE.Mesh(
+                planeGeo,
+                planeMat
+              );
+
+
+            photoMesh.position.set(
+
+              x,
+
+              Math.sin(angle) *
+                1.5,
+
+              z
+
+            );
+
+
+            photoMesh.scale.set(
+
+              baseHeight *
+                aspect,
+
+              baseHeight,
+
               1
+
             );
 
-          const planeMat =
-            new THREE.MeshStandardMaterial({
-              map: texture,
-              side: THREE.DoubleSide,
-              roughness: 0.4,
-              transparent: true
-            });
 
-          const photoMesh =
-            new THREE.Mesh(
-              planeGeo,
-              planeMat
+            /*
+              PENTING:
+              Simpan index foto.
+              Nanti dipakai oleh raycaster.
+            */
+
+            photoMesh.userData = {
+              id: index
+            };
+
+
+            photoMesh.castShadow =
+              true;
+
+            photoMesh.receiveShadow =
+              true;
+
+
+            scene.add(
+              photoMesh
             );
 
-          photoMesh.position.set(
-            x,
-            Math.sin(angle) * 1.5,
-            z
-          );
+            photoMeshes.push(
+              photoMesh
+            );
 
-          photoMesh.scale.set(
-            baseHeight * aspect,
-            baseHeight,
-            1
-          );
+          },
 
-          photoMesh.userData = {
-            id: index
-          };
+          undefined,
 
-          photoMesh.castShadow = true;
-          photoMesh.receiveShadow = true;
+          () => {
 
-          scene.add(photoMesh);
-          photoMeshes.push(photoMesh);
-        },
-        undefined,
-        () => {
-          console.warn(
-            "Foto tidak ditemukan:",
-            data.image
-          );
-        }
-      );
-    });
- /* ================= RAYCASTER HP (PASSED DIRECT TOUCH) ================= */
-const raycaster = new THREE.Raycaster();
-const mouse = new THREE.Vector2();
+            console.warn(
+              "Foto tidak ditemukan:",
+              data.image
+            );
 
-function handleTouchOrClick(clientX, clientY) {
-  // Hitung koordinat klik/tap
-  mouse.x = (clientX / window.innerWidth) * 2 - 1;
-  mouse.y = -(clientY / window.innerHeight) * 2 + 1;
+          }
 
-  raycaster.setFromCamera(mouse, camera);
-  
-  // Deteksi semua elemen foto
-  const intersects = raycaster.intersectObjects(photoMeshes, false);
+        );
 
-  if (intersects.length > 0) {
-    const hitObject = intersects[0].object;
-    if (hitObject && hitObject.userData && hitObject.userData.title) {
-      openCard(hitObject.userData);
-    }
-  }
-}
-
-// Event handler gabungan HP & PC
-const canvasContainer = document.getElementById("canvas-container");
-
-canvasContainer.addEventListener("pointerdown", (e) => {
-  // Hanya proses jika modal sedang tertutup
-  const modal = document.getElementById("modal");
-  if (modal && modal.classList.contains("active")) return;
-
-  handleTouchOrClick(e.clientX, e.clientY);
-}, true);
-
-// 2. Deteksi saat jari diangkat (Touchend)
-window.addEventListener("touchend", (e) => {
-  if (document.getElementById("modal").classList.contains("active")) return;
-
-  if (e.changedTouches.length > 0) {
-    const touchEndX = e.changedTouches[0].clientX;
-    const touchEndY = e.changedTouches[0].clientY;
-
-    // Hitung jarak pergeseran jari
-    const deltaX = Math.abs(touchEndX - touchStartX);
-    const deltaY = Math.abs(touchEndY - touchStartY);
-
-    // Jika jari bergeser kurang dari 10px, anggap sebagai "TAP" (bukan geser kamera)
-    if (deltaX < 10 && deltaY < 10) {
-      checkIntersection(touchEndX, touchEndY);
-    }
-  }
-});
-
-// 3. Tetap sediakan event klik untuk laptop/komputer
-window.addEventListener("click", (e) => {
-  if (document.getElementById("modal").classList.contains("active")) return;
-  // Mencegah bentrok dengan touchend di HP
-  if (e.pointerType === "touch") return; 
-  checkIntersection(e.clientX, e.clientY);
-});
-
-// Fungsi utama pengecekan posisi foto yang ditap
-function checkIntersection(clientX, clientY) {
-  mouse.x = (clientX / window.innerWidth) * 2 - 1;
-  mouse.y = -(clientY / window.innerHeight) * 2 + 1;
-
-  raycaster.setFromCamera(mouse, camera);
-  const intersects = raycaster.intersectObjects(photoMeshes, true);
-
-  if (intersects.length > 0) {
-    // Cari objek utama foto
-    let target = intersects[0].object;
-    while (target && !target.userData.title && target.parent) {
-      target = target.parent;
-    }
-    if (target && target.userData && target.userData.title) {
-      openCard(target.userData);
-    }
-  }
-}
-
-    /* ================= CARD ================= */
-    function openCard(index) {
-      const data =
-        photoData[index];
-
-      document.getElementById(
-        "cardImage"
-      ).src = data.image;
-
-      document.getElementById(
-        "cardTitle"
-      ).textContent = data.title;
-
-      document.getElementById(
-        "cardMessage"
-      ).textContent = data.message;
-
-      document
-        .getElementById("modal")
-        .classList.add("active");
-    }
-
-    function closeCard() {
-      document
-        .getElementById("modal")
-        .classList.remove("active");
-    }
-
-    /* ================= ESC MODAL ================= */
-    window.addEventListener(
-      "keydown",
-      (e) => {
-        if (e.key === "Escape") {
-          closeCard();
-        }
       }
     );
 
-    /* ================= ANIMATION ================= */
+
+    /* =========================================================
+       RAYCASTER
+       FIX UNTUK HP + LAPTOP
+    ========================================================= */
+
+    const raycaster =
+      new THREE.Raycaster();
+
+    const mouse =
+      new THREE.Vector2();
+
+
+    /*
+      Menyimpan posisi awal jari.
+      Ini sebelumnya hilang dari kode kamu.
+    */
+
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchStartTime = 0;
+
+
+    /*
+      Fungsi utama untuk mendeteksi
+      foto yang disentuh / diklik.
+    */
+
+    function checkPhotoIntersection(
+      clientX,
+      clientY
+    ) {
+
+      const modal =
+        document.getElementById(
+          "modal"
+        );
+
+
+      /*
+        Jangan buka foto lain kalau
+        modal sedang terbuka.
+      */
+
+      if (
+        modal &&
+        modal.classList.contains(
+          "active"
+        )
+      ) {
+
+        return;
+
+      }
+
+
+      /*
+        Konversi koordinat layar
+        menjadi koordinat Three.js.
+      */
+
+      const rect =
+        renderer.domElement.getBoundingClientRect();
+
+
+      mouse.x =
+        ((clientX - rect.left) /
+          rect.width) *
+          2 -
+        1;
+
+
+      mouse.y =
+        -(
+          (clientY - rect.top) /
+          rect.height
+        ) *
+          2 +
+        1;
+
+
+      raycaster.setFromCamera(
+        mouse,
+        camera
+      );
+
+
+      /*
+        Deteksi foto.
+      */
+
+      const intersects =
+        raycaster.intersectObjects(
+          photoMeshes,
+          false
+        );
+
+
+      if (
+        intersects.length === 0
+      ) {
+
+        return;
+
+      }
+
+
+      const photo =
+        intersects[0].object;
+
+
+      /*
+        Pastikan object adalah
+        foto yang mempunyai ID.
+      */
+
+      if (
+        photo.userData &&
+        typeof photo.userData.id ===
+          "number"
+      ) {
+
+        openCard(
+          photo.userData.id
+        );
+
+      }
+
+    }
+
+
+    /* =========================================================
+       LAPTOP / DESKTOP CLICK
+    ========================================================= */
+
+    renderer.domElement.addEventListener(
+      "click",
+      (event) => {
+
+        checkPhotoIntersection(
+          event.clientX,
+          event.clientY
+        );
+
+      }
+    );
+
+
+    /* =========================================================
+       HP TOUCH START
+    ========================================================= */
+
+    renderer.domElement.addEventListener(
+      "touchstart",
+      (event) => {
+
+        /*
+          Hanya satu jari.
+        */
+
+        if (
+          event.touches.length !== 1
+        ) {
+
+          return;
+
+        }
+
+
+        const touch =
+          event.touches[0];
+
+
+        touchStartX =
+          touch.clientX;
+
+        touchStartY =
+          touch.clientY;
+
+        touchStartTime =
+          Date.now();
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    /* =========================================================
+       HP TOUCH END
+    ========================================================= */
+
+    renderer.domElement.addEventListener(
+      "touchend",
+      (event) => {
+
+        if (
+          event.changedTouches
+            .length !== 1
+        ) {
+
+          return;
+
+        }
+
+
+        const touch =
+          event.changedTouches[0];
+
+
+        const deltaX =
+          Math.abs(
+            touch.clientX -
+              touchStartX
+          );
+
+
+        const deltaY =
+          Math.abs(
+            touch.clientY -
+              touchStartY
+          );
+
+
+        const duration =
+          Date.now() -
+          touchStartTime;
+
+
+        /*
+          Kalau jari hanya bergerak
+          sedikit dan cepat,
+          berarti user melakukan TAP.
+
+          Kalau bergerak jauh,
+          berarti user sedang memutar galaxy.
+        */
+
+        if (
+          deltaX < 15 &&
+          deltaY < 15 &&
+          duration < 500
+        ) {
+
+          checkPhotoIntersection(
+            touch.clientX,
+            touch.clientY
+          );
+
+        }
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    /* =========================================================
+       CARD
+    ========================================================= */
+
+    function openCard(index) {
+
+      const data =
+        photoData[index];
+
+
+      if (!data) {
+        return;
+      }
+
+
+      document.getElementById(
+        "cardImage"
+      ).src =
+        data.image;
+
+
+      document.getElementById(
+        "cardTitle"
+      ).textContent =
+        data.title;
+
+
+      document.getElementById(
+        "cardMessage"
+      ).textContent =
+        data.message;
+
+
+      document
+        .getElementById("modal")
+        .classList.add(
+          "active"
+        );
+
+    }
+
+
+    function closeCard() {
+
+      document
+        .getElementById("modal")
+        .classList.remove(
+          "active"
+        );
+
+    }
+
+
+    /* =========================================================
+       ESC MODAL
+    ========================================================= */
+
+    window.addEventListener(
+      "keydown",
+      (e) => {
+
+        if (
+          e.key === "Escape"
+        ) {
+
+          closeCard();
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       ANIMATION
+    ========================================================= */
+
     const clock =
       new THREE.Clock();
 
+
     function animate() {
+
       requestAnimationFrame(
         animate
       );
 
+
       const elapsedTime =
         clock.getElapsedTime();
+
 
       centerGroup.rotation.y =
         elapsedTime * 0.3;
 
+
       centerPlanet.rotation.x =
         elapsedTime * 0.1;
+
 
       const scale =
         1 +
@@ -1570,49 +2547,72 @@ function checkIntersection(clientX, clientY) {
         ) *
           0.05;
 
+
       centerPlanet.scale.set(
         scale,
         scale,
         scale
       );
 
+
       starField.rotation.y =
         elapsedTime * 0.01;
 
+
+      /*
+        Foto selalu menghadap kamera.
+      */
+
       photoMeshes.forEach(
         (mesh) => {
+
           mesh.lookAt(
             camera.position
           );
+
         }
       );
 
+
       controls.update();
+
 
       renderer.render(
         scene,
         camera
       );
+
     }
+
 
     animate();
 
-    /* ================= RESIZE ================= */
+
+    /* =========================================================
+       RESIZE
+    ========================================================= */
+
     window.addEventListener(
       "resize",
       () => {
+
         camera.aspect =
           window.innerWidth /
           window.innerHeight;
 
+
         camera.updateProjectionMatrix();
+
 
         renderer.setSize(
           window.innerWidth,
           window.innerHeight
         );
+
       }
     );
+
   </script>
+
 </body>
 </html>
